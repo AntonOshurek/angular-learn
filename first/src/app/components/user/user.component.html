@@ -1,1 +1,6 @@
-<p>user works!</p>
+<div>
+  <button (click)="onSelectUser($event)">
+    <img [src]="imagePath" [alt]="imageAlt">
+    <span>{{ name }}</span>
+  </button>
+</div>
