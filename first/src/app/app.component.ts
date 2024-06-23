@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
+//DATA
+import { DUMMY_USERS } from './dummy-users';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +13,5 @@ import { UserComponent } from './components/user/user.component';
   imports: [RouterOutlet, HeaderComponent, UserComponent],
 })
 export class AppComponent {
-  title = 'test 2';
+  users = DUMMY_USERS;
 }
