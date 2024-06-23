@@ -25,4 +25,8 @@ export class UserComponent {
   get name() {
     return this.selectedUser.name;
   }
+
+  onSelectUser(evt: Event) {
+    console.log(evt.target);
+  }
 }
