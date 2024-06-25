@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { NgFor, NgIf } from '@angular/common';
 //COMPONENTS
 import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
@@ -14,7 +16,14 @@ import type { dummyUsersType, IDummyUser } from './dummy-users';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    UserComponent,
+    TasksComponent,
+    NgFor,
+    NgIf,
+  ],
 })
 export class AppComponent {
   users: dummyUsersType = DUMMY_USERS;
