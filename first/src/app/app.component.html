@@ -11,7 +11,7 @@
         (select)="onSelectUser($event)" />
     </li>
     <li>
-      <app-user [id]="users[3].id" [avatar]="users[3].avatar" [imageAlt]="users[3].name" [name]="users[3].name"
+      <app-user [id]="users[2].id" [avatar]="users[2].avatar" [imageAlt]="users[2].name" [name]="users[2].name"
         (select)="onSelectUser($event)" />
     </li>
     <li>
@@ -20,6 +20,7 @@
     </li>
   </ul>
 
+  <app-tasks [name]="selectedUser.name"></app-tasks>
 </main>
 
 <router-outlet />

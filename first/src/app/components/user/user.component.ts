@@ -13,11 +13,13 @@ export class UserComponent {
   @Input({ required: true }) name: string;
   @Input({ required: true }) imageAlt: string;
 
-  @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter<string>();
 
   // avatar = input.required<string>();
   // name = input.required<string>();
   // imageAlt = input.required<string>();
+
+  // select = output<string>();
 
   // imagePath = computed(() => {
   //   return 'assets/users/' + this.avatar();
@@ -28,8 +30,8 @@ export class UserComponent {
   }
 
   onSelectUser(evt: Event) {
-    // console.log(evt.target);
-
     this.select.emit(this.id);
+
+    // this.select.emit(this.id);
   }
 }
