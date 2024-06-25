@@ -1,3 +1,11 @@
+export interface IDummyUser {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
+export type dummyUsersType = IDummyUser[];
+
 export const DUMMY_USERS = [
   {
     id: 'u1',
