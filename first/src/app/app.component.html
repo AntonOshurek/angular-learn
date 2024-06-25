@@ -1,11 +1,35 @@
-<app-header></app-header>
+<app-header />
 
 <main>
   <ul id="users">
+    @for (user of users; track user.id) {
     <li>
-      <app-user [avatar]="users[0].avatar" [imageAlt]="users[0].name" [name]="users[0].name"></app-user>
+      <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
+    }
+
+    <!-- for angular < 17 version -->
+    <!-- also need to add NgFor to imports on the component class decorator -->
+    <!-- import { NgFor } from '@angular/common'; -->
+    <!-- <li *ngFor="let user of users">
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li> -->
   </ul>
+
+  @if (selectedUser) {
+  <app-tasks [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">Select a user to see their tasks.</p>
+  }
+
+
+  <!-- older aproach for this same case/situation -->
+  <!-- here we also need to add mgif to imports inside the component class -->
+  <!-- <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+
+  <ng-template #fallback>
+    <p id="fallback">Select a user to see their tasks.</p>
+  </ng-template> -->
 
 </main>
 
