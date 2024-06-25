@@ -5,7 +5,7 @@ header {
   gap: 1rem;
   width: 90%;
   max-width: 50rem;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 0 auto;
   text-align: center;
   background: linear-gradient(
     to bottom,

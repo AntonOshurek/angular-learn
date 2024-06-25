@@ -3,7 +3,20 @@
 <main>
   <ul id="users">
     <li>
-      <app-user [avatar]="users[0].avatar" [imageAlt]="users[0].name" [name]="users[0].name"></app-user>
+      <app-user [id]="users[0].id" [avatar]="users[0].avatar" [imageAlt]="users[0].name" [name]="users[0].name"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [id]="users[1].id" [avatar]="users[1].avatar" [imageAlt]="users[1].name" [name]="users[1].name"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [id]="users[3].id" [avatar]="users[3].avatar" [imageAlt]="users[3].name" [name]="users[3].name"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [id]="users[3].id" [avatar]="users[3].avatar" [imageAlt]="users[3].name" [name]="users[3].name"
+        (select)="onSelectUser($event)" />
     </li>
   </ul>
 
