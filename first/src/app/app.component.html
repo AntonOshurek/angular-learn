@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header />
 
 <main>
   <ul id="users">
@@ -9,8 +9,12 @@
     }
   </ul>
 
+  @if (selectedUser) {
+  <app-tasks [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">Select a user to see their tasks.</p>
+  }
 
-  <app-tasks [name]="selectedUser?.name"></app-tasks>
 </main>
 
 <router-outlet />

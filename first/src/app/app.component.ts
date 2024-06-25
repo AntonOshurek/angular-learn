@@ -18,7 +18,7 @@ import type { dummyUsersType, IDummyUser } from './dummy-users';
 })
 export class AppComponent {
   users: dummyUsersType = DUMMY_USERS;
-  selectedUserId: string = this.users[0].id;
+  selectedUserId: string;
 
   get selectedUser(): IDummyUser | undefined {
     return this.users.find((user) => user.id === this.selectedUserId);
