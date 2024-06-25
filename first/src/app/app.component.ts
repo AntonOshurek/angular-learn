@@ -3,9 +3,11 @@ import { RouterOutlet } from '@angular/router';
 //COMPONENTS
 import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 //DATA
-import { DUMMY_USERS, dummyUsersType, IDummyUser } from './dummy-users';
+import { DUMMY_USERS } from './dummy-users';
+//TYPES
+import type { dummyUsersType, IDummyUser } from './dummy-users';
 
 @Component({
   selector: 'app-root',
