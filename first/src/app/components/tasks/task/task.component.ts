@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+//TYPES
+import type { IDummyTask } from '../../../dummy-tasks';
 
 @Component({
   selector: 'app-task',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
-export class TaskComponent {}
+export class TaskComponent {
+  @Input({ required: true }) task: IDummyTask;
+
+  transformedDateForView(): string {
+    const dt = new Date(this.task.dueDate);
+    const options: Intl.DateTimeFormatOptions = {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'UTC',
+    };
+    return Intl.DateTimeFormat('en-EN', options).format(dt);
+  }
+}

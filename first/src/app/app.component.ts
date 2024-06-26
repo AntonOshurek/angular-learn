@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
 import { NgFor, NgIf } from '@angular/common';
 //COMPONENTS
 import { HeaderComponent } from './components/header/header.component';

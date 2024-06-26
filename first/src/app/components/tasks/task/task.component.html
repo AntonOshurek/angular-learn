@@ -1,8 +1,8 @@
 <article>
-  <h2>TASK TITLE</h2>
+  <h2>{{task.title}}</h2>
 
-  <time datetime="">02.02.2024</time>
-  <p>SUMMARY</p>
+  <time datetime="task.dueDate">{{transformedDateForView()}}</time>
+  <p>{{task.summary}}</p>
   <p class="actions">
     <button>Complete</button>
   </p>

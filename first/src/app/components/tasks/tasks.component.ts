@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 //DATA
 import { dummyTasks } from '../../dummy-tasks';
+//TYPES
 import type { dummyTasksType, IDummyTask } from '../../dummy-tasks';
 
 @Component({
