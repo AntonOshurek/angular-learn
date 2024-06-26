@@ -10,6 +10,7 @@ import type { IDummyUser } from '../../data/dummy-users';
 })
 export class UserComponent {
   @Input({ required: true }) user: IDummyUser;
+  @Input({ required: true }) selected: boolean;
 
   @Output() select = new EventEmitter<string>();
 
