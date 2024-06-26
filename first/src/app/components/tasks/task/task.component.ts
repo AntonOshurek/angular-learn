@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 //TYPES
 import type { IDummyTask } from '../../../data/dummy-tasks';
 
@@ -11,6 +11,7 @@ import type { IDummyTask } from '../../../data/dummy-tasks';
 })
 export class TaskComponent {
   @Input({ required: true }) task: IDummyTask;
+  @Output() complete = new EventEmitter<string>();
 
   transformedDateForView(): string {
     const dt = new Date(this.task.dueDate);
@@ -20,5 +21,9 @@ export class TaskComponent {
       timeZone: 'UTC',
     };
     return Intl.DateTimeFormat('en-EN', options).format(dt);
+  }
+
+  onCompleteTask() {
+    this.complete.emit(this.task.id);
   }
 }
