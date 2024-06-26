@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 //COMPONENTS
 import { TaskComponent } from './task/task.component';
 //DATA
-import { dummyTasks } from '../../dummy-tasks';
+import { dummyTasks } from '../../data/dummy-tasks';
 //TYPES
-import type { dummyTasksType, IDummyTask } from '../../dummy-tasks';
+import type { dummyTasksType, IDummyTask } from '../../data/dummy-tasks';
 
 @Component({
   selector: 'app-tasks',

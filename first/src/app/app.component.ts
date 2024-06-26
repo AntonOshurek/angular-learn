@@ -6,9 +6,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 //DATA
-import { DUMMY_USERS } from './dummy-users';
+import { DUMMY_USERS } from './data/dummy-users';
 //TYPES
-import type { dummyUsersType, IDummyUser } from './dummy-users';
+import type { dummyUsersType, IDummyUser } from './data/dummy-users';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 //TYPES
-import type { IDummyTask } from '../../../dummy-tasks';
+import type { IDummyTask } from '../../../data/dummy-tasks';
 
 @Component({
   selector: 'app-task',
