@@ -1,7 +1,6 @@
 @if(isAddingTask) {
-<app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)" />
+<app-new-task (close)="onCloseAddTask()" [userId]="userId" />
 }
-
 
 <section id="tasks">
   <header>
