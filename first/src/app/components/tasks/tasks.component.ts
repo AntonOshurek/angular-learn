@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
+//SERVICES
+import { TasksService } from './tasks.service';
 //COMPONENTS
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
-//DATA
-import { dummyTasks } from '../../data/dummy-tasks';
-//UTILS
-import { generateRandomString } from '../../utils/uniq-id';
 //TYPES
-import type { dummyTasksType, IDummyTask } from '../../data/dummy-tasks';
+import type { dummyTasksType } from '../../data/dummy-tasks';
 
 @Component({
   selector: 'app-tasks',
@@ -19,37 +17,24 @@ import type { dummyTasksType, IDummyTask } from '../../data/dummy-tasks';
 export class TasksComponent {
   @Input({ required: true }) userId: string;
   @Input({ required: true }) name: string;
+  private tasksService: TasksService;
 
-  tasks: dummyTasksType = dummyTasks;
+  // constructor(private tasksService: TasksService) // we can also create depInjection in this way
+  constructor(tasksService: TasksService) {
+    this.tasksService = tasksService;
+  }
 
   isAddingTask: boolean = false;
 
   get selectedUserTasks(): dummyTasksType {
-    return this.tasks.filter((task: IDummyTask) => {
-      return task.userId === this.userId;
-    });
-  }
-
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
+  onCloseAddTask() {
     this.isAddingTask = false;
-  }
-
-  onAddTask() {
-    this.tasks.push({
-      id: generateRandomString(),
-      userId: this.userId,
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    });
   }
 }

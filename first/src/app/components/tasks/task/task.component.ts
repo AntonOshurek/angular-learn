@@ -1,29 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+//SERVICES
+import { TasksService } from '../tasks.service';
+//COMPONENTS
+import { CardComponent } from '../../shared/card/card.component';
 //TYPES
 import type { IDummyTask } from '../../../data/dummy-tasks';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
+  imports: [CardComponent, DatePipe],
 })
 export class TaskComponent {
   @Input({ required: true }) task: IDummyTask;
-  @Output() complete = new EventEmitter<string>();
 
-  transformedDateForView(): string {
-    const dt = new Date(this.task.dueDate);
-    const options: Intl.DateTimeFormatOptions = {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'UTC',
-    };
-    return Intl.DateTimeFormat('en-EN', options).format(dt);
-  }
+  private tasksService = inject(TasksService);
 
   onCompleteTask() {
-    this.complete.emit(this.task.id);
+    this.tasksService.removeTask(this.task.id);
   }
 }
