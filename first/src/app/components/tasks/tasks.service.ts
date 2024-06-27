@@ -9,7 +9,22 @@ import type { ISubmitedTaskData } from '../../types/task.type';
 
 @Injectable({ providedIn: 'root' }) //for create and use only one instance of the class/service
 export class TasksService {
-  private tasks: dummyTasksType = dummyTasks;
+  private storageName = 'tasks';
+  private tasks: dummyTasksType;
+
+  constructor() {
+    const tasks = localStorage.getItem(this.storageName);
+
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    } else {
+      this.tasks = dummyTasks;
+    }
+  }
+
+  private setTasksToStorage() {
+    localStorage.setItem(this.storageName, JSON.stringify(this.tasks));
+  }
 
   getUserTasks(userId: string): dummyTasksType {
     return this.tasks.filter((task: IDummyTask) => task.userId === userId);
@@ -22,9 +37,12 @@ export class TasksService {
       ...taskData,
     });
     this.tasks.unshift(newTask);
+
+    this.setTasksToStorage();
   }
 
   removeTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.setTasksToStorage();
   }
 }
