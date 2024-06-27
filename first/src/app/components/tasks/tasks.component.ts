@@ -8,6 +8,7 @@ import { dummyTasks } from '../../data/dummy-tasks';
 import { generateRandomString } from '../../utils/uniq-id';
 //TYPES
 import type { dummyTasksType, IDummyTask } from '../../data/dummy-tasks';
+import type { ISubmitedTaskData } from '../../types/task.type';
 
 @Component({
   selector: 'app-tasks',
@@ -42,14 +43,14 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
 
-  onAddTask() {
-    this.tasks.push({
+  onAddTask(taskData: ISubmitedTaskData) {
+    const newTask: IDummyTask = Object.assign({
       id: generateRandomString(),
       userId: this.userId,
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
+      ...taskData,
     });
+    this.tasks.unshift(newTask);
+
+    this.onCancelAddTask();
   }
 }

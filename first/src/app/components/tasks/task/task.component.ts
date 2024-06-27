@@ -13,14 +13,18 @@ export class TaskComponent {
   @Input({ required: true }) task: IDummyTask;
   @Output() complete = new EventEmitter<string>();
 
-  transformedDateForView(): string {
-    const dt = new Date(this.task.dueDate);
-    const options: Intl.DateTimeFormatOptions = {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'UTC',
-    };
-    return Intl.DateTimeFormat('en-EN', options).format(dt);
+  get transformedDateForView(): string {
+    if (this.task.dueDate) {
+      const dt = new Date(this.task.dueDate);
+      const options: Intl.DateTimeFormatOptions = {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        timeZone: 'UTC',
+      };
+      return Intl.DateTimeFormat('en-EN', options).format(dt);
+    } else {
+      return '';
+    }
   }
 
   onCompleteTask() {
