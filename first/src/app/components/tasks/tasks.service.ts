@@ -42,7 +42,14 @@ export class TasksService {
   }
 
   removeTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    const index = this.tasks.findIndex((task) => task.id === id);
+    if (index !== -1) {
+      this.tasks = [
+        ...this.tasks.slice(0, index),
+        ...this.tasks.slice(index + 1),
+      ];
+    }
+
     this.setTasksToStorage();
   }
 }
