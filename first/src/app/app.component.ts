@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
 //COMPONENTS
-import { HeaderComponent } from './components/header/header.component';
-import { UserComponent } from './components/user/user.component';
-import { TasksComponent } from './components/tasks/tasks.component';
+// import { HeaderComponent } from './components/header/header.component';
+// import { UserComponent } from './components/user/user.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
 //DATA
 import { DUMMY_USERS } from './data/dummy-users';
 //TYPES
@@ -12,17 +11,15 @@ import type { dummyUsersType, IDummyUser } from './data/dummy-users';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    UserComponent,
-    TasksComponent,
-    NgFor,
-    NgIf,
-  ],
+  // imports: [
+  //   RouterOutlet,
+  //   HeaderComponent,
+  //   UserComponent,
+  //   TasksComponent,
+  // ],
 })
 export class AppComponent {
   users: dummyUsersType = DUMMY_USERS;
