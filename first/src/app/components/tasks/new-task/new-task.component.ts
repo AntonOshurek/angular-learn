@@ -1,5 +1,4 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 //SERVICES
 import { TasksService } from '../tasks.service';
 //TYPES
@@ -7,8 +6,7 @@ import type { ISubmitedTaskData } from '../../../types/task.type';
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css',
 })
