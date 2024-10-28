@@ -1,27 +1,24 @@
-<form>
-  <div class="input-group">
-    <p>
-      <label for="initial-investment">Initial Investment</label>
-      <input type="number" id="initial-investment">
-    </p>
-    <p>
-      <label for="annual-investment">Annual Investment</label>
-      <input type="number" id="annual-investment">
-    </p>
-  </div>
+<form class="user-input container">
 
-  <div class="input-group">
-    <p>
-      <label for="expected-return">Expected Return</label>
-      <input type="number" id="expected-return">
-    </p>
-    <p>
-      <label for="duration">Duration</label>
-      <input type="number" id="duration">
-    </p>
-  </div>
+  <label class="user-input__lable" for="initial-investment">
+    <span class="user-input__input-title">Initial Investment</span>
+    <input class="user-input__input" type="number" id="initial-investment">
+  </label>
 
-  <p>
-    <button type="button">Calculate</button>
-  </p>
+  <label class="user-input__lable" for="annual-investment">
+    <span class="user-input__input-title">Annual Investment</span>
+    <input class="user-input__input" type="number" id="annual-investment">
+  </label>
+
+  <label class="user-input__lable" for="expected-return">
+    <span class="user-input__input-title">Expected Return</span>
+    <input class="user-input__input" type="number" id="expected-return">
+  </label>
+
+  <label class="user-input__lable" for="duration">
+    <span class="user-input__input-title">Duration</span>
+    <input class="user-input__input" type="number" id="duration">
+  </label>
+
+  <button class="user-input__submit-btn" type="button">Calculate</button>
 </form>
