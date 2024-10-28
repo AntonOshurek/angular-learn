@@ -1,0 +1,24 @@
+.header {
+}
+
+.header__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+
+.header__logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.header__title {
+  font-size: 26px;
+  font-weight: 600;
+  font-family: var(--basic-font);
+  color: var(--primary-text);
+}
