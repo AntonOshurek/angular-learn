@@ -1,4 +1,4 @@
-export interface SubmittedData {
+export interface InvestmentParameters {
   initialInvestment: string;
   annualInvestment: string;
   expectedReturn: string;

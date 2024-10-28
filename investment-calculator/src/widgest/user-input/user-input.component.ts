@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 //TYPES
-import { SubmittedData } from './user-input.model';
+import { InvestmentParameters } from './user-input.model';
 
 @Component({
   selector: 'app-user-input',
@@ -16,14 +16,16 @@ export class UserInputComponent {
   enteredExpectedReturn = signal('0');
   enteredDuration = signal('0');
 
+  investmentParams = output<InvestmentParameters>();
+
   onSubmit() {
-    const submittedData: SubmittedData = {
+    const investmentParameters: InvestmentParameters = {
       initialInvestment: this.enteredInitialInvestment(),
       annualInvestment: this.enteredAnnualInvestmens(),
       expectedReturn: this.enteredExpectedReturn(),
       duration: this.enteredDuration(),
     };
 
-    console.log(submittedData);
+    this.investmentParams.emit(investmentParameters);
   }
 }
