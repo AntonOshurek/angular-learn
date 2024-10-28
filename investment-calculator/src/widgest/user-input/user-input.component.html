@@ -1,24 +1,24 @@
-<form class="user-input container">
+<form class="user-input container" (ngSubmit)="onSubmit()">
 
-  <label class="user-input__lable" for="initial-investment">
+  <label class="user-input__lable">
     <span class="user-input__input-title">Initial Investment</span>
-    <input class="user-input__input" type="number" id="initial-investment">
+    <input class="user-input__input" type="number" [(ngModel)]="enteredInitialInvestment" name="initialInvestment">
   </label>
 
-  <label class="user-input__lable" for="annual-investment">
+  <label class="user-input__lable">
     <span class="user-input__input-title">Annual Investment</span>
-    <input class="user-input__input" type="number" id="annual-investment">
+    <input class="user-input__input" type="number" [(ngModel)]="enteredAnnualInvestmens" name="annualInvestment">
   </label>
 
-  <label class="user-input__lable" for="expected-return">
+  <label class="user-input__lable">
     <span class="user-input__input-title">Expected Return</span>
-    <input class="user-input__input" type="number" id="expected-return">
+    <input class="user-input__input" type="number" [(ngModel)]="enteredExpectedReturn" name="expectedReturn">
   </label>
 
-  <label class="user-input__lable" for="duration">
+  <label class="user-input__lable">
     <span class="user-input__input-title">Duration</span>
-    <input class="user-input__input" type="number" id="duration">
+    <input class="user-input__input" type="number" [(ngModel)]="enteredDuration" name="duration">
   </label>
 
-  <button class="user-input__submit-btn" type="button">Calculate</button>
+  <button class="user-input__submit-btn" type="submit">Calculate</button>
 </form>
