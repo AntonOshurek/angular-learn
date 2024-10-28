@@ -1,0 +1,8 @@
+.main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  min-height: 100vh;
+  background: var(--main-bg-gradient);
+}

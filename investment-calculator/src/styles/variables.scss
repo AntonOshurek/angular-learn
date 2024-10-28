@@ -1,0 +1,19 @@
+:root {
+  --basic-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --main-bg-gradient: radial-gradient(#303b37, #1a1f1d);
+  --green-bg-gradient: linear-gradient(180deg, #307e6c, #2b996d);
+  --green-bg-gradient-overlay: #83e6c0;
+  --green-overlay-hover: #aaf1d6;
+
+  --primary-text: #e1eeeb;
+  --secondary-text: #c2e9e0;
+  --black-text: #1a1f1d;
+
+  --green-border-color: #76c0ae;
+
+  --surface-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  --input-border-radius: 3px;
+}
