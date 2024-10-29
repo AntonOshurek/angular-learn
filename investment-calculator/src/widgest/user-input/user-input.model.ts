@@ -1,6 +1,17 @@
 export interface InvestmentParameters {
-  initialInvestment: string;
-  annualInvestment: string;
-  expectedReturn: string;
-  duration: string;
+  initialInvestment: number;
+  annualInvestment: number;
+  expectedReturn: number;
+  duration: number;
 }
+
+export interface AnnualDataItem {
+  year: number;
+  interest: number;
+  valueEndOfYear: number;
+  annualInvestment: number;
+  totalInterest: number;
+  totalAmountInvested: number;
+}
+
+export type AnnualData = AnnualDataItem[];
