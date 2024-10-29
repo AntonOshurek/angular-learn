@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+//MODELS
+import type { AnnualData } from '../user-input/user-input.model';
 
 @Component({
   selector: 'app-investment-results',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
   templateUrl: './investment-results.component.html',
   styleUrl: './investment-results.component.scss',
 })
-export class InvestmentResultsComponent {}
+export class InvestmentResultsComponent {
+  results = input.required<AnnualData>();
+
+  // ngOnInit(): void {
+  //   console.log(this.results().length);
+  // }
+}
