@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 //SERVICES
 import { UserInputService } from './user-input.service';
 //TYPES
-import { AnnualData, InvestmentParameters } from './user-input.model';
+import type { AnnualData, InvestmentParameters } from './user-input.model';
 
 @Component({
   selector: 'app-user-input',
@@ -24,7 +24,7 @@ export class UserInputComponent {
   enteredExpectedReturn = signal('0');
   enteredDuration = signal('0');
 
-  investmentParams = output<AnnualData>();
+  annualData = output<AnnualData>();
 
   onSubmit() {
     const investmentParameters: InvestmentParameters = {
@@ -37,6 +37,6 @@ export class UserInputComponent {
     const annualData =
       this.userInputService.calculateInvestmentResults(investmentParameters);
 
-    this.investmentParams.emit(annualData);
+    this.annualData.emit(annualData);
   }
 }

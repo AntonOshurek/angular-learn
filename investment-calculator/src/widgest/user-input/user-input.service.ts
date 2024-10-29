@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { InvestmentParameters, AnnualData } from './user-input.model';
+//MODELS
+import type { InvestmentParameters, AnnualData } from './user-input.model';
 
-@Injectable({ providedIn: 'root' }) //for create and use only one instance of the class/service
+@Injectable({ providedIn: 'root' })
 export class UserInputService {
   calculateInvestmentResults = (
     investmentParameters: InvestmentParameters
