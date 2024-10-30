@@ -12,8 +12,4 @@ import type { AnnualData } from '../user-input/user-input.model';
 })
 export class InvestmentResultsComponent {
   results = input.required<AnnualData>();
-
-  // ngOnInit(): void {
-  //   console.log(this.results().length);
-  // }
 }

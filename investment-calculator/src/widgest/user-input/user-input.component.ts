@@ -19,10 +19,10 @@ export class UserInputComponent {
     this.userInputService = userInputService;
   }
 
-  enteredInitialInvestment = signal('0');
-  enteredAnnualInvestmens = signal('0');
-  enteredExpectedReturn = signal('0');
-  enteredDuration = signal('0');
+  enteredInitialInvestment = signal('');
+  enteredAnnualInvestmens = signal('');
+  enteredExpectedReturn = signal('5');
+  enteredDuration = signal('10');
 
   annualData = output<AnnualData>();
 

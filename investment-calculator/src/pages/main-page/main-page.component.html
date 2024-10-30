@@ -1,5 +1,5 @@
 <main class="main">
   <app-header />
   <app-user-input (annualData)="onUserInput($event)" />
-  <app-investment-results [results]="annualData" />
+  <app-investment-results [results]="annualData()" />
 </main>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 //COMPONENTS
 import { HeaderComponent } from '../../widgest/header/header.component';
 import { UserInputComponent } from '../../widgest/user-input/user-input.component';
@@ -14,9 +14,9 @@ import type { AnnualData } from '../../widgest/user-input/user-input.model';
   styleUrl: './main-page.component.scss',
 })
 export class MainPageComponent {
-  annualData: AnnualData = [];
+  annualData = signal<AnnualData>([]);
 
   onUserInput(annualData: AnnualData) {
-    this.annualData = annualData;
+    this.annualData.set(annualData);
   }
 }
