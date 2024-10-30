@@ -1,6 +1,5 @@
 .user-input {
-  padding: 20px;
-  max-width: 560px;
+  padding: var(--standard-side-paddings);
   border-radius: 4px;
   background: var(--green-bg-gradient);
   box-shadow: var(--surface-box-shadow);
