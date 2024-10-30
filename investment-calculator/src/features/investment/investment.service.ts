@@ -1,12 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 //MODELS
-import type { InvestmentParameters, AnnualData } from './user-input.model';
+import type {
+  AnnualData,
+  InvestmentParameters,
+} from './model/investment.model';
 
 @Injectable({ providedIn: 'root' })
-export class UserInputService {
+export class InvestmentService {
+  private _anualData = signal<AnnualData>([]);
+
   calculateInvestmentResults = (
     investmentParameters: InvestmentParameters
-  ): AnnualData => {
+  ): void => {
     const { initialInvestment, annualInvestment, expectedReturn, duration } =
       investmentParameters;
 
@@ -29,6 +34,10 @@ export class UserInputService {
       });
     }
 
-    return annualData;
+    this._anualData.set(annualData);
   };
+
+  get anualData() {
+    return this._anualData();
+  }
 }
