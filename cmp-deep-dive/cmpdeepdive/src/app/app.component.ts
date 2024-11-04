@@ -5,6 +5,7 @@ import { ServerStatusComponent } from './dashboard/server-status/server-status.c
 import type { dummyTrafficData } from './app.model';
 import { TicketsComponent } from './dashboard/tickets/tickets.component';
 import { TraficComponent } from './dashboard/trafic/trafic.component';
+import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-item.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { TraficComponent } from './dashboard/trafic/trafic.component';
     ServerStatusComponent,
     TicketsComponent,
     TraficComponent,
+    DashboardItemComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
