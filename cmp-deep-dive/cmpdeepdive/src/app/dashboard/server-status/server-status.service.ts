@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ServerStatusEnum } from './server-status.enum';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ServerStatusService {
   constructor() {}
 
