@@ -28,5 +28,7 @@ export class ControlComponent {
   labelText = input.required<string>();
   private el = inject(ElementRef);
 
-  onClick() {}
+  onClick() {
+    console.log('click on host element from control.component');
+  }
 }
