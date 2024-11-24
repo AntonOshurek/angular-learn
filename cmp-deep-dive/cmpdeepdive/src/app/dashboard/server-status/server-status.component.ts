@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ServerStatusEnum } from './server-status.enum';
 import { ServerStatusService } from './server-status.service';
 
@@ -10,20 +17,25 @@ import { ServerStatusService } from './server-status.service';
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.scss',
 })
-export class ServerStatusComponent implements OnInit, OnDestroy {
+export class ServerStatusComponent implements OnInit {
   currentStatus = signal<ServerStatusEnum>(ServerStatusEnum.online);
-  private interval?: ReturnType<typeof setInterval>;
+  // private interval?: ReturnType<typeof setInterval>;
+  private destoryRef = inject(DestroyRef);
 
   constructor(private serverStatusService: ServerStatusService) {}
 
   ngOnInit() {
-    this.interval = setInterval(() => {
+    const interval = setInterval(() => {
       const serverStatus = this.serverStatusService.getServerStatus();
       this.currentStatus.set(serverStatus);
     }, 5000);
-  }
 
-  ngOnDestroy() {
-    clearTimeout(this.interval);
+    this.destoryRef.onDestroy(() => {
+      clearInterval(interval);
+    });
   }
+  //  OLDER APPROACH
+  // ngOnDestroy() {
+  //   clearTimeout(this.interval);
+  // }
 }
