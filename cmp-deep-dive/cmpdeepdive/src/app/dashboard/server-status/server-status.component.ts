@@ -1,26 +1,41 @@
-import { Component, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
+import { ServerStatusEnum } from './server-status.enum';
+import { ServerStatusService } from './server-status.service';
 
 @Component({
   selector: 'app-server-status',
   standalone: true,
   imports: [],
+  providers: [ServerStatusService],
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.scss',
 })
-export class ServerStatusComponent {
-  currentStatus = signal<'online' | 'offline' | 'unknown'>('online');
+export class ServerStatusComponent implements OnInit {
+  currentStatus = signal<ServerStatusEnum>(ServerStatusEnum.online);
+  // private interval?: ReturnType<typeof setInterval>;
+  private destoryRef = inject(DestroyRef);
 
-  constructor() {
-    setInterval(() => {
-      const rnd = Math.random();
+  constructor(private serverStatusService: ServerStatusService) {}
 
-      if (rnd < 0.5) {
-        this.currentStatus.set('online');
-      } else if (rnd < 0.9) {
-        this.currentStatus.set('offline');
-      } else {
-        this.currentStatus.set('unknown');
-      }
+  ngOnInit() {
+    const interval = setInterval(() => {
+      const serverStatus = this.serverStatusService.getServerStatus();
+      this.currentStatus.set(serverStatus);
     }, 5000);
+
+    this.destoryRef.onDestroy(() => {
+      clearInterval(interval);
+    });
   }
+  //  OLDER APPROACH
+  // ngOnDestroy() {
+  //   clearTimeout(this.interval);
+  // }
 }

@@ -29,7 +29,6 @@ export class ControlComponent {
   private el = inject(ElementRef);
 
   onClick() {
-    console.log('click');
-    console.log(this.el);
+    console.log('click on host element from control.component');
   }
 }
