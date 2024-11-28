@@ -1,1 +1,12 @@
-<app-new-ticket />
+<ul>
+  @for(ticket of tickets; track ticket.id) {
+  <li>
+    <app-ticket [data]="ticket" (close)="onCloseTicket(ticket.id)" />
+    <!-- <app-ticket /> {{$even}} {{$odd}} {{$first}} {{$last}} {{$count}} -->
+  </li>
+  } @empty {
+  <p>No tickets available.</p>
+  }
+</ul>
+
+<app-new-ticket (add)="onAdd($event)" />
