@@ -1,6 +1,7 @@
 import {
   Component,
   DestroyRef,
+  effect,
   inject,
   OnDestroy,
   OnInit,
@@ -22,7 +23,12 @@ export class ServerStatusComponent implements OnInit {
   // private interval?: ReturnType<typeof setInterval>;
   private destoryRef = inject(DestroyRef);
 
-  constructor(private serverStatusService: ServerStatusService) {}
+  constructor(private serverStatusService: ServerStatusService) {
+    //in this way we can logging value feom signal dinamicly with subscription on changes
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit() {
     const interval = setInterval(() => {
